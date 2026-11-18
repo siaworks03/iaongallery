@@ -1,0 +1,315 @@
+/* ==========================================================
+   Iaon Gallery
+   Plain CSS, black and gold
+   ========================================================== */
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0 solid;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- Base ---------- */
+:root {
+  --black: #050505;
+  --panel: #0d0c0a;
+  --gold: #c9a24a;
+  --gold-light: #e8cf8f;
+  --gold-dark: #8c6d26;
+  --line: rgba(201, 162, 74, 0.38);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--black);
+  color: #f5efe0;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--black);
+  color: #f5efe0;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--gold);
+  color: #000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Page background ---------- */
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: var(--black);
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(201, 162, 74, 0.16) 0%, transparent 60%);
+}
+
+.main {
+  width: 100%;
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3.5rem;
+}
+
+/* ---------- Brand (centered, top) ---------- */
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.brand-logo {
+  width: 6rem;
+  height: 6rem;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  border: 1px solid var(--line);
+  background: #040404;
+  box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.9), 0 0 0 4px rgba(201, 162, 74, 0.06);
+}
+
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brand-name {
+  margin-top: 1.1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 8.5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1;
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 55%, var(--gold-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--gold);
+}
+
+/* ---------- Stores ---------- */
+.stores {
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+  margin-top: 2.5rem;
+}
+
+.store-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--gold-light);
+}
+
+.store-title::before,
+.store-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line));
+}
+
+.store-title::after {
+  background: linear-gradient(270deg, transparent, var(--line));
+}
+
+/* ---------- Link buttons ---------- */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin-top: 1.25rem;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 68px;
+  padding: 0.875rem 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #15130f 0%, var(--panel) 100%);
+  color: #f5efe0;
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.9);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.link-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-0.125rem);
+  box-shadow: 0 12px 30px -12px rgba(201, 162, 74, 0.45);
+}
+
+.link-card:active {
+  transform: translateY(0);
+}
+
+.link-card:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--black),
+    0 0 0 4px var(--gold-light),
+    0 10px 30px -10px rgba(0, 0, 0, 0.9);
+}
+
+.link-main {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.link-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: rgba(201, 162, 74, 0.1);
+  border: 1px solid rgba(201, 162, 74, 0.22);
+}
+
+.link-icon svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.link-label {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #f5efe0;
+}
+
+.arrow {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  color: var(--gold);
+  transition: transform 0.15s ease;
+}
+
+.link-card:hover .arrow {
+  transform: translate(0.125rem, -0.125rem);
+}
+
+/* ---------- Image fallback (shown by js/main.js if an image fails) ---------- */
+.img-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.5rem;
+  text-align: center;
+  color: var(--gold);
+  background: #040404;
+}
+
+.img-fallback svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.img-fallback span {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+/* ==========================================================
+   Responsive breakpoints
+   ========================================================== */
+
+/* sm - 640px+ */
+@media (min-width: 640px) {
+  .main {
+    padding-top: 3.5rem;
+  }
+  .brand-logo {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+  .brand-name {
+    font-size: 3rem;
+  }
+  .link-label {
+    font-size: 17px;
+  }
+}
+
+/* lg - 1024px+ : two stores side by side, menswear left, kidswear right */
+@media (min-width: 1024px) {
+  .main {
+    max-width: 62rem;
+    padding-top: 4.5rem;
+  }
+  .stores {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+    margin-top: 3.5rem;
+  }
+  .store {
+    flex: 1;
+    min-width: 0;
+  }
+}
